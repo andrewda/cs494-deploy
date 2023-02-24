@@ -31,7 +31,6 @@ jobs:
       - name: Build assignments
         run: python3 build.py
         env:
-          PUBLIC_URL: .
           GITHUB_USER: andrewda
           GITHUB_PAT: ${{ secrets.GH_PAT }}
       - name: Setup Pages

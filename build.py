@@ -19,13 +19,14 @@ if __name__ == '__main__':
     token = os.environ['GITHUB_PAT']
 
     # public_url = os.environ['PUBLIC_URL']
-    public_url = f'https://dassonville.dev/cs494-deploy/{assignment["name"]}/'
+    public_url = f'https://dassonville.dev/cs494-deploy/{assignment["name"]}'
+    basename = f'/cs494-deploy/{assignment["name"]}'
 
     # Clone repository with git:
     os.system(f'git clone https://{user}:{token}@github.com/{assignment["repo"]} {clone_path}')
 
     # CD into the cloned repository, install depeodencies and run build script
-    os.system(f'cd {clone_path} && npm install && PUBLIC_URL={public_url} npm run build')
+    os.system(f'cd {clone_path} && npm install && PUBLIC_URL={public_url} REACT_APP_BASENAME={basename} npm run build')
 
     # Copy the build folder to the build directory
     os.system(f'cp -r {clone_path}/build {build_path}')
