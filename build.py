@@ -18,7 +18,8 @@ if __name__ == '__main__':
     user = os.environ['GITHUB_USER']
     token = os.environ['GITHUB_PAT']
 
-    public_url = os.environ['PUBLIC_URL']
+    # public_url = os.environ['PUBLIC_URL']
+    public_url = f'https://dassonville.dev/cs494-deploy/{assignment["name"]}/'
 
     # Clone repository with git:
     os.system(f'git clone https://{user}:{token}@github.com/{assignment["repo"]} {clone_path}')
